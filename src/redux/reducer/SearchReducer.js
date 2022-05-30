@@ -157,7 +157,6 @@ export const getHotelFacilities = () => {
     return (dispatch) => {
         axios.get(`${link}booking-app/facilitiels_of_hotels/`)
             .then(({data}) => {
-                console.log("facilities" + JSON.stringify(data));
                 return dispatch({type: GET_HOTEL_FACILITIES_REQUEST, payload: data.results})
             })
             .catch((e) => {
@@ -169,10 +168,8 @@ export const getHotelFacilities = () => {
 
 export const getRoomFacilities = () => {
     return (dispatch) => {
-        // https://silk-travel.herokuapp.com/booking-app/facilitiels_of_rooms/
         axios.get(`${link}booking-app/facilitiels_of_rooms/`)
             .then(({data}) => {
-                console.log("facilities of rooms" + JSON.stringify(data));
                 return dispatch({type: GET_ROOM_FACILITIES_REQUEST, payload: data.results});
 
             })
@@ -188,7 +185,6 @@ export const getFoodCategories = () => {
     return (dispatch) => {
         axios.get(`${link}booking-app/food_categories/`)
             .then(({data}) => {
-                console.log("facilities" + JSON.stringify(data));
                 return dispatch({type: GET_FOOD_FACILITIES_REQUEST, payload: data.results})
             })
             .catch((e) => {
@@ -202,7 +198,6 @@ export const getCategories = () => {
     return (dispatch) => {
         axios.get(`${link}booking-app/categories/`)
             .then(({data}) => {
-                console.log("categories" + JSON.stringify(data));
                 return dispatch({type: GET_CATEGORIES, payload: data.results})
             })
             .catch((e) => {
@@ -229,7 +224,6 @@ export const sendBooking = (booking) => {
         })
             .then(({data}) => {
                 console.log("booking send response" + JSON.stringify(data));
-                // return dispatch({type: GET_CATEGORIES, payload: data.results})
             })
             .catch((e) => {
                 console.log(e)
