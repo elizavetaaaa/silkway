@@ -1,0 +1,107 @@
+.property{
+
+  &__attention-div{
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #0fab6020;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  }
+
+  &__form{
+    //position: relative;
+    width: 70%;
+    margin: 30px auto 0;
+  }
+
+  &__attention-message{
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #0fab60;
+    text-align: center;
+  }
+
+  &__input-block{
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  &__text-input{
+    width: 350px;
+    height: 40px;
+    border: 1px solid #00000020;
+    border-radius: 8px;
+    padding-left: 15px;
+    outline: none;
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+
+  &__select-input{
+    width: 350px;
+    height: 40px;
+    border: 1px solid #00000020;
+    border-radius: 8px;
+    padding-left: 15px;
+    outline: none;
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+
+  &__submit-btn-div{
+  display: flex;
+    justify-content: flex-end;
+}
+
+
+   &__submit-btn{
+    height: 40px;
+    width: 300px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 30px;
+    background-color: #ffdc82;
+    font-weight: bold;
+     display: flex;
+     align-content: center;
+     align-items: center;
+     justify-content: center;
+  }
+
+  &__title{
+    margin: 20px 0 ;
+  }
+
+  &__imp-sign{
+    color: red;
+  }
+
+  &__space-span{
+    margin-right: 10px;
+  }
+
+  &__result-mes{
+    text-align: center;
+    color: #0fab60;
+    font-weight: bold;
+  }
+
+  &__mess-div{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 100%;
+    padding: 20px;
+    font-size: 16px;
+    color: #0fab60;
+    text-align: center;
+    background-color: #0fab6020;
+    margin-top: 30px;
+  }
+
+}

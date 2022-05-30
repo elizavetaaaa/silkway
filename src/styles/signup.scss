@@ -1,0 +1,177 @@
+.signup {
+  //background-color: lightskyblue;
+  width: 900px;
+  padding: 60px 100px 100px;
+  margin: 30px auto;
+  text-align: left;
+  box-shadow: rgba(149, 157, 165, 0.8) 0 8px 24px;
+
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__choice {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+  }
+
+  &__choice-p {
+    margin-bottom: 10px;
+  }
+
+  &__labels {
+    margin-bottom: 5px;
+  }
+
+  &__devide-line {
+    margin-bottom: 20px;
+  }
+
+  &__ind-title {
+    margin-bottom: 20px;
+  }
+
+  &__label {
+    margin-right: 40px;
+  }
+
+  &__input {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #00000020;
+    border-radius: 8px;
+    padding-left: 15px;
+    outline: none;
+    margin-bottom: 20px;
+    //margin-right: 20px;
+  }
+
+  &__input:nth-child(3) {
+    margin-right: 0;
+  }
+
+  &__user-form {
+    width: 620px;
+    position: relative;
+    height: 100px;
+    padding-bottom: 50px;
+
+  }
+
+  &__btn-div {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+
+  }
+
+  &__btn {
+    height: 40px;
+    width: 300px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+
+    background-color: #ffdc82;
+    font-weight: bold;
+  }
+
+  &__span {
+    margin-left: 5px;
+  }
+
+  &__message-div {
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: #0fab6020;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  }
+
+  &__ver-message-div{
+    margin: 50px auto 0;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    text-align: center;
+  z-index: 99;
+    //flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: #0fab6020;
+    opacity: unset;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  &__home-btn{
+    color: #fff;
+    background-color: #0fab60;
+    border-radius: 10px;
+    height: 40px;
+    width: 200px;
+    border: none;
+    margin-top: 25px;
+    cursor: pointer;
+  }
+
+  &__inputs-div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__message {
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: left;
+
+  }
+
+  &__back-home-btn {
+    height: 30px;
+    width: 260px;
+    border: none;
+    background-color: #06ab3160;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  &__back-home-btn:hover {
+    background-color: #11ab5b;
+
+  }
+
+  &__code-div {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+
+  &__code-input {
+    height: 40px;
+    width: 50%;
+    border: 1px solid #00000030;
+    padding-left: 25px;
+    border-radius: 8px;
+    //font-size: 20px;
+    font-weight: normal;
+    outline: none;
+    margin-right: 10px;
+  }
+
+  &__confirm-btn{
+    width: 40%;
+    margin-top: 0;
+    background-color: #0fab60;
+    color: #fff;
+  }
+}

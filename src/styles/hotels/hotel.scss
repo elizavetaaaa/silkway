@@ -1,0 +1,110 @@
+.hotel{
+  &__container{
+    text-align: left;
+    padding: 40px 0 20px;
+  }
+  &__title{
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  &__address{
+    margin-bottom: 10px;
+
+  }
+  &__description{}
+
+  &__subtitle{
+    margin-bottom: 20px;
+
+  }
+
+  &__facilities{
+    width: 30%;
+    margin-right: 20px;
+    //background-color: lightskyblue;
+  }
+
+  &__facility{
+    margin-bottom: 8px;
+    margin-right: 20px;
+  }
+
+  &__link{
+    color: #1f98f4;
+    text-decoration: none;
+  }
+
+  &__container-fac{
+    display: flex;
+  }
+
+  &__comment-btn{
+  color: #357cfa;
+    border: none;
+    background-color: #5d8cff30;
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    margin-left: 120px;
+}
+
+  &__img{
+    width: 200px;
+    height: 150px;
+    margin-right: 10px !important;
+  }
+
+  &__room-div{
+    border: 1px solid #00000020;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 30px 20px;
+  }
+
+  &__room-title{
+    color: #1b81e6;
+    margin-bottom: 10px;
+  }
+
+  &__room-icon{
+    margin-right: 10px;
+  }
+
+  &__room-subtitle{
+    font-size: 16px;
+    margin: 25px 0 10px;
+  }
+
+  &__price{
+    color: #0fab60;
+  }
+
+  &__room-fac-div{
+    display: flex;
+    justify-content: left;
+    position: relative;
+  }
+
+  &__room-fac{
+    margin-left: 100px;
+  }
+
+  &__room-fac:first-child {
+    margin-left: 0;
+  }
+
+
+    &__book-btn{
+    width: 200px;
+    height: 40px;
+    color: #fff;
+    background-color: #1dab6e;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+      cursor: pointer;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+  }
+  }

@@ -1,0 +1,561 @@
+@media (max-width: 1600px) {
+  .container{
+    max-width: 1100px;
+  }
+
+  .header__nav{
+    //justify-content: left;
+  }
+
+
+}
+
+@media (max-width: 950px) {
+  .container{
+    max-width: 800px !important;
+  }
+}
+
+
+
+@media (max-width: 900px) {
+  .container{
+    max-width: 700px !important;
+  }
+  .facilities__facility{
+    width: 150px;
+  }
+  .header__ul{
+    display: none;
+  }
+
+  .header__left-div{
+    display: none;
+
+  }
+
+  .header__logo{
+    margin-left: 40px;
+  }
+
+  .header__burger-btn{
+    display: block;
+    margin-right: 20px;
+    border: none;
+    background-color: transparent;
+    height: 60px;
+    width: 60px;
+  }
+
+  .header__small-menu{
+    //display: none;
+    flex-direction: column;
+    padding: 30px 0;
+    width: 100%;
+    background-color: #fff;
+    height: 100%;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: 1px solid grey;
+    //border-bottom: 1px solid grey;
+
+
+  }
+
+  .header__ul-small{
+    text-align: center;
+  }
+
+  .header__ul-small>li {
+    margin-bottom: 10px;
+    //background-color: #fff;
+    text-align: left;
+    padding: 10px 60px;
+    background-color: #00005c10;
+    margin-right: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .header__ul-small>li:hover {
+    background-color: #00005c30;
+    cursor: pointer;
+  }
+
+    .header__left-div-small{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header__selects{
+    display: flex;
+    justify-content: left;
+    width: 50%;
+
+  }
+
+  .header__select{
+    font-weight: bold;
+  }
+
+  .header__btns{
+    display: flex;
+    flex-direction: column;
+    //justify-content: space-between;
+    margin-top: 30px;
+  }
+
+  .header__login-btn-small{
+    width: 96%;
+    border: none;
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+    //background-color: #fff;
+    text-align: left;
+    padding: 10px 60px;
+    background-color: #00005c10;
+    margin: 10px 60px 10px  0 ;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .header__login-btn-small:hover {
+    background-color: #00005c30;
+    cursor: pointer;
+  }
+
+
+
+
+  .header__li{
+    font-weight: bold;
+
+  }
+
+  .login{
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    border-top: 1px solid #00000030;
+  }
+
+  .resetPass{
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    border-top: 1px solid #00000030;
+  }
+
+  .header__selects{
+    margin:20px  60px;
+  }
+}
+
+@media (max-width: 800px) {
+  .container{
+    max-width: 600px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .container{
+    max-width: 500px !important;
+  }
+
+  .facilities__facility{
+    width: 200px;
+  margin-left: 50px;
+  }
+
+  .besthotels__cards{
+    flex-direction: column;
+  }
+
+  .card {
+    width: 80%;
+    margin: 10px auto;
+  }
+  }
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 400px !important;
+  }
+  .facilities__title{
+    text-align: center;
+  }
+
+  .facilities__subtitle{
+    text-align: center;
+    }
+
+  .facilities__subcontainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .facilities__tex-div{
+    width: 100%;
+  }
+
+  .facilities__fac-div{
+    width: 100%;
+    margin-top: 50px;
+  }
+  .facilities__contact-btn{
+    width: 100%;
+  }
+
+  .facilities__facility{
+    margin-left: 0;
+    width: 180px;
+  }
+
+  .besthotels__title .facilities__title{
+  font-size: 24px;
+    margin-bottom: 10px;
+}
+
+  .facilities__title{
+    font-size: 24px;
+    line-height: 28px;
+
+  }
+  .besthotels{
+    padding-bottom: 30px;
+  }
+
+  .facilities__subtitle{
+    font-size: 12px;
+    margin: 10px 0;
+  }
+  .besthotels__under-title-content{
+    flex-direction: column;
+  }
+
+  .besthotels__view-btn{
+    margin-top: 20px;
+  }
+
+  .besthotels__subtitle{
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .container {
+    max-width: 300px !important;
+  }
+
+  .facilities__subtitle{
+    margin: 30px 0 ;
+  }
+
+  .card__hotel-name{
+    font-size: 16px;
+  }
+
+  .facilities__fac-div{
+    justify-content: center;
+  }
+  .facilities__facility{
+    width: 250px;
+  }}
+
+
+@media (max-width: 1000px) {
+
+  .container{
+    max-width: 900px;
+  }
+  .facilities__fac-div{
+    padding-left: 60px;
+  }
+  .rec.rec-arrow:last-child {
+    right: 20%;
+  }
+  .rec.rec-arrow:first-child {
+    left: 20%;
+  }
+  .booking__form{
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 300px;
+    border-radius: 8px;
+  }
+
+  .booking__el:first-child{
+    width: 100%;
+    padding-left: 15px;
+  }
+
+  .booking__el{
+    border-right: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+
+  }
+
+  .booking__input{
+    width: 100%;
+    border: 1px solid #00000010 ;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+  .booking__icon{
+    display: none;
+  }
+
+  .booking__dest-div{
+    width: 100%;
+  }
+
+  .booking__el:nth-child(2){
+    width: 50%;
+  }
+  .booking__el:nth-child(3){
+    width: 50%;
+  }
+  .booking__el:nth-child(4) {
+    width: 50%;
+
+  }
+
+  .booking__guest-div{
+    width: 100%;
+
+  }
+
+    .booking__date-div{
+    width: 100%;
+  }
+
+  .booking__title{
+    font-size: 50px;
+    line-height: 52px;
+  }
+
+  .booking__subtitle{
+    display: none;
+  }
+
+  .booking__el:last-child{
+    width: 50%;
+    padding-top: 36px;
+  }
+
+  .booking__btn{
+    width: 100%;
+    border-radius: 5px;
+    height: 40px;
+    position: relative;
+    margin-left: 0;
+    left: 0;
+  }
+
+  .hotel__cards{
+    padding-left: 0 !important;
+  }
+
+}
+
+@media (max-width: 530px) {
+.booking{
+  padding: 80px 40px;
+  height: 600px;
+
+}
+
+  .booking__break{
+    display: none;
+  }
+
+  .booking__title {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .booking__form {
+    margin-top: 20px;
+  }
+
+  .header{
+    padding: 10px;
+  }
+
+  .header__burger-btn{
+    height: 30px;
+    width: 30px;
+  }
+  .header__burger-icon{
+    height: 30px;
+    width: 30px;
+  }
+  .hotel__cards{
+    padding-left: 0 !important;
+  }
+
+  }
+
+
+@media (max-width: 400px) {
+  .booking__title {
+    font-size: 32px;
+    line-height: 35px;
+    margin-bottom: 20px;
+  }
+
+  .booking__subtitle {
+    display: block;
+    font-size: 16px;
+    line-height: 22px;
+
+  }
+
+  .hotels__el:nth-child(2){
+    width: 100%;
+  }
+
+  .hotels__el:nth-child(3){
+    width: 100%;
+  }
+
+  .hotels__form{
+    height: 400px;
+  }
+
+  .hotels__filter-btn {
+    margin-top: 20px;
+  }
+
+  .hotel__cards{
+    padding-left: 0 !important;
+  }
+  }
+
+@media (max-width: 350px) {
+
+  .booking{
+    padding: 50px 20px;
+    height: 400px;
+  }
+
+  .booking__subtitle {
+    display: none;
+
+  }
+
+  .booking__title {
+    display: none;
+  }
+  }
+
+
+@media (max-width: 1200px) {
+  .hotels{
+    display: block ;
+  }
+
+  .hotels__main{
+    display: flex;
+  }
+
+  .hotels__filters{
+    display: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .hotels__cards{
+    width: 100%;
+    padding-left: 0;
+  }
+
+
+  .hotels__filter-btn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    color: grey;
+  }
+
+  .hotels__filter-btn:hover {
+    color: #0fab60;
+  }
+
+
+  }
+
+@media (max-width: 700px) {
+  .hotelCard{
+    flex-direction: column;
+  }
+
+  .facilities__fac-div{
+    padding-left: 0;
+  }
+
+}
+
+@media (max-width: 1300px) {
+  .hotelCard{
+  height: 200px;}
+
+  .hotelCard__text-content{
+    height: 100%;
+  }
+
+  .hotelCard__bottom-sec{
+    margin-top: 5px;
+  }
+
+  .hotelCard__description{
+    margin: 5px 0;
+  }
+
+}
+
+@media(max-width: 750px){
+  .hotelCard__description{
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 700px){
+  .hotelCard{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    //width: 400px;
+  }
+
+  .hotel__carousel{
+    height: 100%;
+    width: 200px;
+
+  }
+  .hotelCard__text-content{
+    width: 100%;
+    height: auto;
+  }
+
+  .hotelCard__img-div{
+    height: 100%;
+  }
+
+  .hotel__carousel{
+    width: 100% !important;
+  }
+
+  .hotelCard__text-content{
+    padding-top: 0;
+  }
+}

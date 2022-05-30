@@ -1,0 +1,45 @@
+.footer{
+  background-color: #000;
+  height: 200px;
+  width: 100%;
+  padding: 50px 0;
+  position: relative;
+  bottom: 0;
+
+  &__row{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+
+  &__ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-bottom:  20px;
+
+  }
+
+  &__ul>li {
+    color: #fff;
+    text-align: left;
+  }
+
+  &__media-icons{
+    display: flex;
+  }
+    &__media-link{
+    color: #fff;
+    margin-right: 20px;
+  }
+
+  &__lozung{
+    font-style: italic;
+    font-weight: 100;
+  }
+}

@@ -1,0 +1,40 @@
+.besthotels{
+  padding: 50px 0 147px;
+  text-align: left;
+
+  &__cards{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__under-title-content{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title{
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 60px;
+    color: #000000;
+    margin-bottom: 36px;
+
+  }
+  
+  &__view-btn{
+    background-color: #24AB7010;
+    color: #24AB70;
+    border-radius: 50px;
+    border: none;
+    height: 40px;
+    width: 110px;
+    cursor: pointer;
+  }
+
+  &__view-btn:hover {
+    background-color: #24AB7030;
+
+  }
+  }

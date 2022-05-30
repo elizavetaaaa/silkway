@@ -1,0 +1,230 @@
+.booking{
+  background: url("../images/bg1.svg") center/cover no-repeat;
+  height: 656px;
+  padding: 112px 64px;
+  position: relative;
+
+  &__loading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+  }
+
+  &__title{
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 80px;
+    text-align: left;
+    /* or 125% */
+    margin-bottom: 34px;
+
+
+    color: #fff;
+  }
+
+  &__subtitle{
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: left;
+    font-weight: bold;
+
+    /* or 160% */
+
+    color: #fff;
+  }
+
+  &__form{
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    margin-top: 68px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__label{
+    display: block;
+  }
+
+  &__el{
+    width: 20%;
+    padding: 18px ;
+    text-align: left;
+    display: flex;
+    border-right: 1px solid #00000015;
+  }
+
+  &__el:first-child {
+    padding-left: 30px;
+  }
+
+    &__el:nth-child(4) {
+    border-right: 0;
+
+  }
+
+    &__input{
+    border: none;
+    //border-bottom: 1px solid #00000020;
+    outline: none;
+    width: 120px;
+  }
+
+  &__el:last-child{
+    //background-color: lightskyblue;
+    position: relative;
+  }
+  
+  &__btn{
+    color: #fff;
+    background-color: #24AB70;
+    border: none;
+    height: 80px;
+    border-radius: 280px;
+    width: 120%;
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+    cursor: pointer;
+  }
+
+  &__btn:hover {
+    background-color: #1ba2ab;
+  }
+
+
+  &__icon{
+    height: 24px;
+    margin-right: 8px;
+  }
+
+  &__people-forms{
+    display: flex;
+    margin-top: 10px;
+margin-left: 650px;
+    justify-content: left;
+    flex-direction: column;
+    //background-color: lightskyblue;
+    //overflow-x: scroll;
+    overflow-y: scroll;
+    height: 300px;
+    width: 285px;
+
+
+  }
+
+  &__people-add{
+    height: 180px;
+    width: 285px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    //margin-left: 660px;
+    //margin-top: 2px;
+    margin-right: 5px;
+    border: 1px solid #00000060;
+    border-top: none;
+    border-bottom: none;
+}
+
+  &__room-top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  &__room-title{
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  &__remove-room-btn{
+    border: none;
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+    margin-top: -20px;
+  }
+
+  &__people-input{
+    width: 120px;
+    //border:  none;
+    outline: none;
+    border: 1px solid #00000030;
+    padding-left: 15px;
+    height: 30px;
+    border-radius: 5px;
+
+  }
+
+  &__inputs-div{
+    display: flex;
+  }
+
+  &__room-btns{
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+  }
+
+  &__add-room--btn{
+    width: 48%;
+    height: 30px;
+    border-radius: 2px;
+    margin-top: 10px;
+    border: 1px solid #0fab60;
+    background-color: transparent;
+    color: #0fab60;
+    font-size: 10px;
+    outline: none;
+    margin-right: 10px;
+  }
+
+  &__room-ready-btn{
+    width: 48%;
+    height: 30px;
+    color: #fff;
+    border-radius: 2px;
+    border: none;
+    background-color: #0fab60;
+    margin-top: 10px;
+    outline: none;
+
+  }
+  
+  &__add-btn{
+
+    width: 100%;
+
+  }
+
+  &__people-input-div{
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+  }
+
+  &__people-label{
+    text-align: left;
+    margin-bottom: 5px;
+  }
+
+  &__empty-result{
+    color: #fff;
+    font-size: 16px;
+    margin-top: 20px;
+    //text-align: left;
+  }
+
+  }
+
+input{
+}

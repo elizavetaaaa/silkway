@@ -1,0 +1,42 @@
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  border-radius: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  
+  &__img{
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+
+  &__location{
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    /* identical to box height, or 150% */
+    color: #24AB70;
+    margin: 24px 24px 8px;
+
+  }
+
+  &__hotel-name{
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    margin-left: 24px;
+    /* identical to box height, or 125% */
+    color: #222222;
+  }
+
+  &__extra{
+    margin-left: 24px;
+    display: flex;
+    padding-bottom: 38px;
+  }
+
+}

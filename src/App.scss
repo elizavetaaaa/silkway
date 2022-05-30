@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Montserrat:ital,wght@0,400;1,500;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;1,600&family=Roboto&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: Open Sans, sans-serif;
+}
+
+.container{
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  height: 80px;
+  width: 80px;
+}
+
+
+
+
+.cNNJIt {
+  box-shadow: none !important;
+  width: 20px;
+  height: 20px;
+}
+.cNNJIt:hover {
+  background-color: transparent;
+
+}
+.jRFJkP {
+  box-shadow: none !important;
+
+
+}
+.rec.rec-arrow:first-child {
+  position: absolute;
+  top: 5px;
+  left: 35%;
+  z-index: 2;
+
+}
+
+.rec.rec-arrow:last-child {
+  position: absolute;
+  top: 5px;
+  right: 35%;
+  z-index: 2;
+}
+.rec.rec-arrow{
+  //width: 20px;
+  //height: 20px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 0;
+
+}
+
+.rec.rec-arrow{
+  border: none;
+  border-radius: 50%;
+
+}
+.rec.rec-arrow:hover {
+
+  border-radius: 50%;
+  background-color: #00000020  !important;
+}
+
+.fPDpuU {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+@import "./src/styles/header";
+@import "./src/styles/booking";
+@import "./src/styles/besthotels";
+@import "./src/styles/card";
+@import "./src/styles/facilities";
+@import "./src/styles/map";
+@import "./src/styles/contact";
+@import "./src/styles/footer";
+@import "./src/styles/login";
+@import "./src/styles/resetPass";
+@import "./src/styles/signup";
+@import "./src/styles/registration/entity";
+@import "./src/styles/registration/property";
+@import "./src/styles/hotels/hotelCard";
+@import "./src/styles/hotels/hotels";
+@import "./src/styles/hotels/filterBlock";
+@import "./src/styles/hotels/filter";
+@import "./src/styles/myarea";
+@import "./src/styles/hotels/hotel";
+
+@import "./src/styles/media";
+

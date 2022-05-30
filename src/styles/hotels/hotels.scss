@@ -1,0 +1,101 @@
+.hotels{
+
+
+  &__main{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+  }
+
+  &__form{
+    width: 100%;
+    margin: 20px auto 40px;
+    height: 80px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    //background-color: lightcoral;
+  }
+
+  &__el:last-child{
+    border-right: none;
+    //background-color: lightskyblue;
+  }
+
+  &__btn{
+    height: 80px;
+    margin: 0 20px 0 0;
+    background-color: #11ab5b20;
+    color: #000;
+  }
+
+  &__btn:hover {
+    background-color: #11ab5b20;
+  }
+
+    &__filters{
+    width: 25%;
+    height: 100vh;
+    padding: 10px ;
+    background-color: #fff;
+    //display: none;
+  }
+
+  &__filters-small{
+    width: 100%;
+    padding: 10px ;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    //transform: translate(-50%, -50%);
+    z-index: 99;
+  }
+
+  &__cards{
+    width: 75%;
+    padding: 10px  0 0 30px;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  &__filter-btn{
+    display: none;
+    border: 1px solid #00000010;
+    padding: 5px 10px;
+    height: 40px;
+    width: 120px;
+    background-color: #8EC5FC20;
+    color: #0fab60;
+    border-radius: 8px;
+    //margin:0 0 10px 120px;
+    cursor: pointer;
+    //position: absolute;
+    //right: 100px;
+
+  }
+
+  &__filter-btn:first-child {
+    margin-right: 10px;
+  }
+
+  &__filter-btn:last-child {
+    width: 250px;
+  }
+
+    &__filter-icon{
+    margin-left: 10px;
+  }
+
+  &__top-section{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+  }
+
+  &__filter-btns{
+    display: flex;
+
+  }
+}
