@@ -64,6 +64,36 @@ const Hotels = () => {
     }, []);
     let lan = localStorage.getItem('lan');
 
+    // Additional services
+    // Catering services
+    // Meetings/Events
+    // Languages spoken at the hotel
+    let add_serv_list =[];
+    let cat_serv_list =[];
+    let meetings_list =[];
+    let lang_list =[];
+
+    hotelFacilitiesList.map((el)=>{
+        if(el.category_id.name_en === 'Languages spoken at the hotel'){
+            lang_list.push(el)
+        }
+        else if(el.category_id.name_en === 'Meetings/Events'){
+            meetings_list.push(el)
+        }
+
+        else if(el.category_id.name_en === 'Catering services'){
+            cat_serv_list.push(el)
+        }
+        else if(el.category_id.name_en === 'Additional services'){
+            add_serv_list.push(el)
+        }
+
+
+    });
+
+
+
+
 
     return (
         <div className="hotels" style={{display: isMenuShown ? 'none' : 'block'}}>
@@ -124,15 +154,19 @@ const Hotels = () => {
             <div className="hotels__main">
                 <div className="hotels__filters">
                     {categories.map((el) => {
-                        return <FilterHotelFacilities props={lan === 'ru' ? el.name_ru : el.name_en} list={starRatingList}/>
+                        return <FilterHotelFacilities props={lan === 'ru' ? el.name_ru : el.name_en} list={
+                            el.name_en === 'Meetings/Events' ? meetings_list :
+                                el.name_en === 'Languages spoken at the hotel' ? lang_list :
+                                el.name_en === 'Catering services' ? cat_serv_list :
+                                el.name_en === 'Additional services' ? add_serv_list : ''
+
+
+                        }/>
 
                     })}
-                    <FilterHotelFacilities props={translate("Услуги отелей")} list={hotelFacilitiesList}/>
                     <FilterRoomFacilities props={translate("Услуги комнат")} list={roomFacilitiesList}/>
                     <FilterFoodCategories props={translate("Питание")} list={foodCategoriesList}/>
-                    {/*<FilterBlockFacilities props={translate("Удобства и услуги")} list={['Русский язык', 'Турецкий язык', 'Французский язык', 'Английский язык', 'Немецкий язык', 'Бизнес-центр самообслуживания', 'Бизнес центр', '6 конференц-залов', 'Горячие блюда', '', 'Холодные закуски','Обслуживание номеров', 'Шведский стол, буфет', 'Один бар', 'Один ресторан', 'Шаттл', 'Спортзал', 'Массаж', '','', '','', '','', '','', '', 'Пляж рядом', "Горнолыжный склон рядом", "Спа-услуги", "Конференц-зал", "Бар или ресторан", "Фитнес центр", "Бассейн", "Парковка", "Трансфер", "Бесплатный интернет"]}/>*/}
-                    {/*<FilterBlockFacilities props={translate("Номера")} list={["Двухместный полулюкс", "Комфортный двухместный номер"]}/>*/}
-                    {/*<FilterBlockFacilities props={translate("В номере")} list={["Кондиционер", "Ванная комната в номере", "Окно в номере", "Кухня", "Балкон", "Вид из окна"]}/>*/}
+
 
                 </div>
 

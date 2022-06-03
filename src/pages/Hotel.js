@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {AiFillCheckCircle} from "react-icons/ai";
 import {FaBabyCarriage} from "react-icons/fa";
 import Carousel from "react-elastic-carousel";
@@ -20,47 +20,23 @@ const Hotel = () => {
     const currentHotel = useSelector(state => state.searchReducer.chosenHotel);
     let lan = localStorage.getItem('lan');
 
-    const bookHotel = (room) => {
-        console.log(room);
-        let booking = {
-            guest_id: {
-                email: localStorage.getItem('USER'),
-                // role: ???;
-                token: localStorage.getItem('ACCESS')
-            },
+
+    useEffect(()=>{
+        console.log(currentHotel)
+    },[])
+    const bookHotel = (value) => {
+
+        let booking ={
+            room: value.id,
+            hotel : currentHotel.id,
             checkin_date: localStorage.getItem("check_in"),
             checkout_date: localStorage.getItem("check_out"),
-            hotel: {
-                hotel_name_ru: currentHotel?.hotel_name_ru,
-                hotel_name_en: currentHotel?.hotel_name_en,
-                hotel_address_ru: currentHotel?.hotel_address_ru,
-                hotel_address_en: currentHotel?.hotel_address_en,
-                hotel_description_ru: currentHotel?.hotel_description_ru,
-                hotel_description_en: currentHotel?.hotel_description_en,
-                is_active: true,
-                city: {
-                    city_name_ru: currentHotel?.city?.city_name_ru,
-                    city_name_en: currentHotel?.city?.city_name_en,
-                    country_id: {
-                        country_name_ru: currentHotel?.country_id?.country_name_ru,
-                        country_name_en: currentHotel?.country_id?.country_name_en,
-                    }
-                },
-                checkin_date: localStorage.getItem("check_in"),
-                checkout_date: localStorage.getItem("check_out"),
-            },
-            room: {
-                room_name_ru: room.room_name_ru,
-                room_name_en: room.room_name_en,
-                room_description_ru: room.room_description_ru,
-                room_description_en: room.room_description_en,
-                child_capacity: room.child_capacity
-            },
-            num_of_guest: 0
+            num_of_guest: +localStorage.getItem("num_of_guests"),
+            room_price : currentHotel.total_price
         };
-        dispatch(sendBooking(booking));
-        console.log(JSON.stringify(booking));
-        console.log(room);
+        console.log(booking)
+        dispatch(sendBooking(booking))
+
 
     };
 
@@ -80,6 +56,8 @@ const Hotel = () => {
                                          star4 :
                                          currentHotel?.hotel_category[0]?.hotel_category_stars === 5 ?
                                              star5 : ''}/>
+
+                                             <p className="hotel__time">{translate('Время регистрации')} : {currentHotel.checkin_date} - {currentHotel.checkout_date} </p>
                     <p className="hotel__address">{lan === 'ru' ? currentHotel?.hotel_address_ru : currentHotel.hotel_address_en}</p>
                     <p className="hotel__description">
                         {lan === 'ru' ? currentHotel?.hotel_description_ru : currentHotel?.hotel_description_en}
@@ -150,20 +128,16 @@ const Hotel = () => {
 
                 <div className="hotel__container">
                     <h3 className="hotel__subtitle">Номера</h3>
-
-
-                    {currentHotel?.room_id?.map((room) => {
+                    {Object.entries(currentHotel?.result).map(([key, value]) => {
                         return <div className="hotel__room-div">
-                            <h3 className="hotel__room-title">{lan === 'ru' ? room.room_name_ru : room.room_name_en}</h3>
-                            <p className="hotel__price">{translate('Цена')} - {room?.price[0].price}</p>
-                            <p>{lan === 'ru' ? room.room_description_ru : room.room_description_en}</p>
-
-
+                            <h3 className="hotel__room-title">{lan === 'ru' ? value?.room_name_ru : value.room_name_en}</h3>
+                            <p className="hotel__price">{translate('Цена')} - {value?.prices[0].price}</p>
+                            <p>{lan === 'ru' ? value.room_description_ru : value.room_description_en}</p>
                             <div className="hotel__room-fac-div">
                                 <div className="hotel__room-fac"
-                                     style={{display: room?.category_id.length ? 'block' : 'none'}}>
+                                     style={{display: value?.category_id.length ? 'block' : 'none'}}>
                                     <h3 className="hotel__room-subtitle">{translate('Удобства комнаты')}</h3>
-                                    {room?.category_id.map((category) => {
+                                    {value?.category_id.map((category) => {
                                         return <p><BsCheckAll
                                             className="hotel__room-icon"/>{lan === 'ru' ? category.room_category_name_ru : category.room_category_name_en}
                                         </p>
@@ -171,9 +145,9 @@ const Hotel = () => {
                                 </div>
 
                                 <div className="hotel__room-fac"
-                                     style={{display: room?.characteristics_id?.length ? 'block' : 'none'}}>
+                                     style={{display: value?.characteristics_id?.length ? 'block' : 'none'}}>
                                     <h3 className="hotel__room-subtitle">{translate('Дополнительное описание')}</h3>
-                                    {room?.characteristics_id.map((category) => {
+                                    {value?.characteristics_id.map((category) => {
                                         return <p><BsFillCaretRightFill
                                             className="hotel__room-icon"/>{lan === 'ru' ? category.name_ru : category.name_en}
                                         </p>
@@ -181,12 +155,16 @@ const Hotel = () => {
                                 </div>
 
                                 <button className="hotel__book-btn"
-                                        onClick={() => bookHotel(room)}>{translate('Забронировать')}</button>
+                                        onClick={() => bookHotel(value)}>{translate('Забронировать')}</button>
                             </div>
 
 
                         </div>
-                    })}
+                    })
+                    }
+
+
+
 
 
                 </div>

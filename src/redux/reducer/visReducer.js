@@ -199,6 +199,8 @@ export const showPeopleDiv =()=>({
 
 
 });
+
+
 export const changePeopleDiv =()=>({
     type : CHANGE_PEOPLE_DIV,
 

@@ -17,9 +17,14 @@ const SET_CHOSEN_HOTEL = 'SET_CHOSEN_HOTEL';
 const GET_CATEGORIES = 'GET_CATEGORIES';
 
 const SET_BOOKING = 'SET_BOOKING'
+const ADD_CHILD = 'ADD_CHILD'
+const ADD_CHILD_TO_LIST = 'ADD_CHILD_TO_LIST'
+const DELETE_CHILD = 'DELETE_CHILD'
+const ADD_ROOM_ITEM = 'ADD_ROOM_ITEM'
+const DELETE_ROOM = 'DELETE_ROOM'
+const CLEAR_CHILD_LIST = 'CLEAR_CHILD_LIST'
 
 const link = process.env.REACT_APP_MAIN_API;
-
 
 const initialState = {
     data: [],
@@ -31,6 +36,10 @@ const initialState = {
     foodCategoriesList: [],
     chosenHotel: [],
     categories: [],
+    childList:[],
+    roomListAdded:[],
+    roomNumbers:[],
+    roomIdx:0
 };
 
 
@@ -102,6 +111,41 @@ export default (state = initialState, action) => {
                 categories: action.payload
             }
         }
+        case ADD_CHILD: {
+            return {
+                ...state,
+                childList: [...state.childList, action.payload]
+            }
+        }
+
+        case DELETE_CHILD: {
+            return {
+                ...state,
+                childList: state.childList.filter((el)=> el!== action.payload)
+            }
+        }
+        case ADD_ROOM_ITEM: {
+            return {
+                ...state,
+                roomListAdded: [...state.roomListAdded, action.payload],
+                roomIdx: state.roomIdx+1,
+                roomNumbers: [...state.roomNumbers, state.roomIdx]
+            }
+        }
+
+        case DELETE_ROOM: {
+            return {
+                ...state,
+                roomListAdded: state.roomListAdded.filter((el)=> el!== action.payload)
+            }
+        }
+
+        case CLEAR_CHILD_LIST: {
+            return {
+                ...state,
+                childList: []
+            }
+        }
         default :
             return state
 
@@ -111,9 +155,9 @@ export default (state = initialState, action) => {
 };
 
 
-export const searchPlaceRequest = (data) => (dispatch) => {
-    localStorage.setItem('search', data)
-    axios.get(`${link}search/?search=${data}`)
+export const searchPlaceRequest = (payload) => (dispatch) => {
+    // localStorage.setItem('search', data)
+    axios.get(`${link}search/?search=${payload.destination}&guests=${payload.guests}&currency_to_convert=${payload.currency}`)
         .then(({data}) => {
             dispatch({type: GET_SEARCH_RESULT, payload: data.results})
             if (data.results.length) {
@@ -231,5 +275,29 @@ export const sendBooking = (booking) => {
 
     }
 };
+export const addChildListAction =(payload)=>({
+    type: ADD_CHILD, payload
+});
+
+export const addChildToList =(payload)=>({
+    type: ADD_CHILD_TO_LIST, payload
+});
+
+export const deleteChildAction =(payload)=>({
+    type: DELETE_CHILD, payload
+});
+
+export const addRoomItemAction =(payload)=>({
+    type: ADD_ROOM_ITEM, payload
+});
+
+export const deleteRoomAction =(payload)=>({
+    type: DELETE_ROOM, payload
+});
+
+export const clearChildListAction =()=>({
+    type: CLEAR_CHILD_LIST
+});
+
 
 

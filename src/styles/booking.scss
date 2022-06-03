@@ -107,22 +107,23 @@
   }
 
   &__people-forms{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     display: flex;
     margin-top: 10px;
-margin-left: 650px;
+    margin-left: 650px;
     justify-content: left;
     flex-direction: column;
     //background-color: lightskyblue;
     //overflow-x: scroll;
     overflow-y: scroll;
     height: 300px;
-    width: 285px;
+    width: 310px;
 
 
   }
 
   &__people-add{
-    height: 180px;
+    //height: 180px;
     width: 285px;
     background-color: #fff;
     padding: 20px;
@@ -155,23 +156,34 @@ margin-left: 650px;
   }
 
   &__people-input{
-    width: 120px;
+    width: 40px;
     //border:  none;
     outline: none;
-    border: 1px solid #00000030;
+    border: none;
+    border-top: 1px solid #00000030;
+    border-bottom: 1px solid #00000030;
     padding-left: 15px;
     height: 30px;
-    border-radius: 5px;
+
 
   }
+  &__people-input:last-child {
+    margin-left: 10px;
+    border: 1px solid #00000030;
+  }
 
-  &__inputs-div{
+  &__child-input{
+    width: 100px;
+    border: 1px solid #00000030;
+  }
+
+    &__inputs-div{
     display: flex;
   }
 
   &__room-btns{
     display: flex;
-    justify-content: end;
+    justify-content: start;
     margin-top: 10px;
   }
 
@@ -189,7 +201,7 @@ margin-left: 650px;
   }
 
   &__room-ready-btn{
-    width: 48%;
+    width: 100%;
     height: 30px;
     color: #fff;
     border-radius: 2px;
@@ -197,6 +209,7 @@ margin-left: 650px;
     background-color: #0fab60;
     margin-top: 10px;
     outline: none;
+    margin: auto;
 
   }
   
@@ -214,7 +227,7 @@ margin-left: 650px;
 
   &__people-label{
     text-align: left;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 
   &__empty-result{
@@ -223,6 +236,95 @@ margin-left: 650px;
     margin-top: 20px;
     //text-align: left;
   }
+
+  &__add-adult-block{
+    display: flex;
+  }
+
+  &__adult-btn{
+    width: 30px;
+    border: none;
+    background-color: #11ab5b;
+    color: #fff;
+    cursor: pointer;
+
+
+  }
+
+  &__main-child-div{
+    display: flex;
+    border: 1px solid #00000020;
+    padding: 2px;
+    width: 100px;
+    justify-content: space-between;
+    margin-right: 15px;
+    margin-bottom: 5px;
+
+
+  }
+
+  &__main-child-btn{
+    border: none;
+    color: #00000060;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__added-clildren{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0;
+    flex-wrap: wrap;
+
+  }
+
+  &__child-label{
+    text-align: left;
+    margin: 10px 0;
+  }
+  &__sec-select{
+    margin-bottom: 5px;
+  }
+  
+  &__rooms{
+    background: #FFF;
+    padding: 20px 0;
+  }
+
+  &__room{
+    padding: 10px 20px;
+    border: 1px solid #00000020;
+    margin: 10px 0;
+    text-align: left;
+    background-color: #357cfa10;
+    position: relative;
+  }
+
+  &__rooms-title{
+    text-align: left;
+    color: #1f98f4;
+    margin-left: 20px;
+    font-weight: bold;
+  }
+
+  &__room-num{
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  &__remove-room-btn{
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    border: none;
+    background-color: transparent;
+    color: red;
+    width: 20px;
+    height: 20px;
+  }
+
 
   }
 

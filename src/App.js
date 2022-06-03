@@ -24,8 +24,10 @@ function App() {
         } else {
             document.getElementById('lang-small').value = 'ENG';
             document.getElementById('lang').value = 'ENG';
+            document.getElementById('lang').value = 'ENG';
             dispatch(setLocale(LOCALES.ENGLISH))
         }
+        localStorage.setItem("currency", 'USD')
 
     }, []);
 

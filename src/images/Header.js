@@ -26,7 +26,7 @@ const Header = () => {
         console.log(payload)
         dispatch(logoutUser(payload));
         localStorage.clear();
-        window.location.reload(false);
+        window.location.replace('http://localhost:3000/');
     }
     useEffect(()=>{
 
@@ -58,6 +58,10 @@ const Header = () => {
 
     };
 
+    const setCurrency =(value)=>{
+        localStorage.setItem('currency', value)
+    }
+
 
     return (
         <div className="header">
@@ -79,11 +83,12 @@ const Header = () => {
                         <option value="ENG">ENG</option>
                     </select>
 
-                    <select  className="header__select" name="cur" id="cur">
-                        <option value="RU">USD</option>
-                        <option value="ENG">KGS</option>
-                        <option value="ENG">RUB</option>
-                        <option value="ENG">EURO</option>
+                    <select  className="header__select" name="cur" id="cur"
+                    onChange={(e)=>setCurrency(e.target.value)} >
+                        <option value="USD">USD</option>
+                        <option value="KGS">KGS</option>
+                        <option value="RUB">RUB</option>
+                        <option value="EURO">EURO</option>
                     </select>
 
                     <button className="header__my-area"

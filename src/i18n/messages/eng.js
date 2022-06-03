@@ -126,6 +126,8 @@ export default {
         'Забронировать': 'Book now',
         'Даты': 'Dates',
         'Количество гостей': 'Number of guests',
+        'Добавить комнату' : 'Add a room',
+        'Время регистрации' : 'Registration time',
 
 
 
