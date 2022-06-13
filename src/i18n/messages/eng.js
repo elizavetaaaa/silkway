@@ -128,6 +128,9 @@ export default {
         'Количество гостей': 'Number of guests',
         'Добавить комнату' : 'Add a room',
         'Время регистрации' : 'Registration time',
+        'Выбранные фильтры' : 'Chosen filters',
+        'Применить' : 'Apply',
+        'Применить поиск по фильтрам' : 'Apply filter search'
 
 
 

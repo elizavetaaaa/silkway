@@ -7,23 +7,18 @@ import {
 } from "../../redux/reducer/SearchReducer";
 import {isDisabled} from "@testing-library/user-event/dist/utils";
 
-const   Filter = ({props, category}) => {
-
+const FilterRoom = ({props, category}) => {
     const dispatch = useDispatch();
     const addedFilterList = useSelector(state => state.searchReducer.addedFilterList);
-
+    const addedRoomCatsFilterList = useSelector(state => state.searchReducer.addedRoomCatsFilterList);
     const addToFilterList = (value) => {
-        if (!addedFilterList.includes(value)) {
-            dispatch(addToFilterListAction(value))
-            if (category === 'food_category') {
-                dispatch(addToFoodCAtsFilterListAction(`food_category=${value}&`))
-            } else dispatch(addToRoomCatsFilterListAction(`room_category=${value}&`))
-
-        } else {
-            dispatch(deleteFilterAction(value))
-            if (category === 'food_category') {
-                dispatch(deleteFromFoodCatsFilterListAction(value))
-            } else dispatch(deleteFromRoomCatsFilterListAction(value))
+        if (!addedRoomCatsFilterList.includes(value)) {
+            // dispatch(addToFilterListAction(value))
+            dispatch(addToRoomCatsFilterListAction(value))
+        }
+        else {
+            // dispatch(deleteFilterAction(value))
+            dispatch(deleteFromRoomCatsFilterListAction(value))
 
         }
 
@@ -31,24 +26,32 @@ const   Filter = ({props, category}) => {
     };
 
     useEffect(() => {
-        let arr = document.getElementsByClassName("check-box");
+        let arr = document.getElementsByClassName("check-box-room");
         let checkBoxArray = Array.from(arr);
+        console.log(checkBoxArray)
         checkBoxArray.map((el) => {
-            if (!addedFilterList.includes(el.value)) {
+            console.log(el.value);
+            let newArr =[];
+            addedRoomCatsFilterList.map((item)=>{
+                newArr.push(JSON.stringify(item));
+            });
+
+            if (!newArr.includes(el.value)) {
                 el.checked = false;
             }
+            else el.checked = true
         })
-    }, [addedFilterList])
+    }, [addedRoomCatsFilterList]);
 
     const lan  = localStorage.getItem('lan');
     return (
         <form className="filter">
             <input type="checkbox"
-                   value={props.id} className="check-box" onChange={(e) => addToFilterList(e.target.value)}/>
+                   value={JSON.stringify(props)} className="check-box-room" onChange={() => addToFilterList(props)}/>
             <p className="filter__name">{lan === 'ru' ? props.room_category_name_ru : props.room_category_name_en}</p>
 
         </form>
     );
 };
 
-export default Filter;
+export default FilterRoom;

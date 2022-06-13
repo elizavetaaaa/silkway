@@ -1,4 +1,5 @@
 import axios from "axios";
+import {changeIsLogin} from "./visReducer";
 
 const REGISTRATION = 'REGISTRATION';
 const SAVE_TOKEN = 'SAVE_TOKEN';
@@ -16,6 +17,7 @@ const DELETE_EMAIL_VERIFICATION = 'DELETE_EMAIL_VERIFICATION';
 
 const LOGIN = 'LOGIN';
 const RESET_PASSWORD = 'RESET_PASSWORD';
+const SET_NO_LOGIN_MSG = 'SET_NO_LOGIN_MSG';
 
 const link = process.env.REACT_APP_MAIN_API;
 
@@ -36,7 +38,8 @@ const initialState = {
     resultMessageProperty: '',
     resultProperty: null,
     loading: false,
-    verifyMessage: ''
+    verifyMessage: '',
+    noLoginMsg:''
 
 };
 
@@ -156,7 +159,14 @@ export default (state = initialState, action) => {
             localStorage.setItem("REFRESH", JSON.stringify(action.data.user.refresh));
             return {
                 ...state,
-                user: action.data.user
+                user: action.data.user,
+                noLoginMsg : ''
+            }
+        }
+        case SET_NO_LOGIN_MSG:{
+            return {
+                ...state,
+                noLoginMsg: 'Пользователь не найден'
             }
         }
         default :
@@ -274,6 +284,8 @@ export const login =(data)=>{
             .catch((e)=>{
                 console.log(e.message)
                 dispatch(changeLoading());
+                dispatch(changeIsLogin());
+                dispatch({type: 'SET_NO_LOGIN_MSG'})
 
             })
     }

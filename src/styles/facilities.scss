@@ -105,6 +105,7 @@
   &__label{
     text-align: left;
     margin-bottom: 10px;
+    font-weight: bold;
   }
 
   &__input-block{
@@ -114,7 +115,7 @@
 
   &__input{
     height: 30px;
-    border: 1px solid #00000020;
+    border: 1px solid #00000040;
     border-radius: 5px;
     width: 100%;
     outline: none;
@@ -126,7 +127,7 @@
 
   &__text-area{
     height: 100px;
-    border: 1px solid #00000020;
+    border: 1px solid #00000040;
     border-radius: 5px;
     resize: none;
     width: 100%;
@@ -138,10 +139,11 @@
     height: 40px;
     width: 100%;
     border-radius: 5px;
-    background-color: #0fab60;
-    color: #fff;
+    background-color: #ffd35c;
     border:none;
     margin-top: 20px;
+    color: #000;
     cursor: pointer;
+    font-weight: bold;
   }
 }

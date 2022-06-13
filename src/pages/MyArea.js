@@ -33,20 +33,21 @@ const MyArea = () => {
     return (
         <div className="myarea">
 
-            <div className="myarea__nav" style={{display : isMenuShown ? 'none' : 'block'}}>
-                <ul className="myarea__ul">
-                    <li className="myarea__first-li">
-                        <IoPersonCircle className ="myarea__person"/>
-                        <p>Личный кабинет</p>
-                        <p>{JSON.stringify(localStorage.getItem('USER'))}</p>
-                    </li>
-                    <li className="myarea__li">Мои бронирования</li>
+            {/*<div className="myarea__nav" style={{display : isMenuShown ? 'none' : 'block'}}>*/}
+            {/*    <ul className="myarea__ul">*/}
+            {/*        <li className="myarea__first-li">*/}
+            {/*            <IoPersonCircle className ="myarea__person"/>*/}
+            {/*            <p>Личный кабинет</p>*/}
+            {/*            <p>{JSON.stringify(localStorage.getItem('USER'))}</p>*/}
+            {/*        </li>*/}
+            {/*        <li className="myarea__li">Мои бронирования</li>*/}
 
-                </ul>
+            {/*    </ul>*/}
 
-            </div>
+            {/*</div>*/}
 
             <div className="myarea__bookings">
+                <h3 className="myarea__title">{translate('Мои бронирования')}</h3>
                 {bookings.map((hotel)=>{
                     return <div className="myarea__booking">
                         <h4 className="myarea__hotel-name"> <span className="myarea__bold">{translate('Отель')}:</span> {hotel.hotel_name}</h4>

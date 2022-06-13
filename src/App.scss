@@ -118,6 +118,10 @@
   padding: 0 !important;
 }
 
+input[type="checkbox"]#checkbox1:checked + span {
+  border-color: red;
+  background-color:red;
+}
 @import "./src/styles/header";
 @import "./src/styles/booking";
 @import "./src/styles/besthotels";
@@ -137,6 +141,7 @@
 @import "./src/styles/hotels/filter";
 @import "./src/styles/myarea";
 @import "./src/styles/hotels/hotel";
+@import "./src/styles/pages/news";
 
 @import "./src/styles/media";
 

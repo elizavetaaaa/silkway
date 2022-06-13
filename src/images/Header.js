@@ -58,6 +58,7 @@ const Header = () => {
 
     };
 
+
     const setCurrency =(value)=>{
         localStorage.setItem('currency', value)
     }

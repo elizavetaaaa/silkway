@@ -1,5 +1,6 @@
 import React from 'react';
 import Filter from "./Filter";
+import FilterFood from "./FilterFood";
 
 const FilterFoodCategories = ({props, list}) => {
     let lan = localStorage.getItem('lan');
@@ -9,7 +10,7 @@ const FilterFoodCategories = ({props, list}) => {
             <div className="filterBlock__block">
                 <h4 className="filterBlock__title">{props}</h4>
                 {list?.map((el) => {
-                    return <Filter props={lan ==='ru' ? el.food_category_name_ru : el.food_category_name_en }/>
+                    return <FilterFood props={el } category={'food_category'}/>
                 })}
 
             </div>

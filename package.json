@@ -11,6 +11,7 @@
     "react-elastic-carousel": "^0.11.5",
     "react-icons": "^4.3.1",
     "react-intl": "^5.24.7",
+    "react-phone-input-2": "^2.15.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",

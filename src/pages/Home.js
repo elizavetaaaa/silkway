@@ -8,6 +8,7 @@ import RemindPass from "../components/RemindPass";
 import {useDispatch, useSelector} from "react-redux";
 import {setLocale} from "../redux/reducer/lanReducer";
 import {LOCALES} from "../i18n";
+import Footer from "../components/Footer";
 
 const Home = () => {
     const isMenuShown = useSelector(state=>state.store.isMenuShown);
@@ -34,7 +35,9 @@ const Home = () => {
             <RemindPass/>
             <BestHotels/>
             <Facilities/>
-            {/*<Map/>*/}
+            <Map/>
+            <Footer/>
+
 
 
         </div>

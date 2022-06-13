@@ -11,21 +11,26 @@ import {
     addFirstRoom,
     addRoom,
     changePeopleDiv,
-    removeSelectedRoom,
+    removeSelectedRoom, setLoadingFalse,
     setLoadingTrue,
     showPeopleDiv
 } from "../redux/reducer/visReducer";
 import {
     addChildListAction,
-    addChildToList, addRoomItemAction, clearChildListAction,
-    deleteChildAction, deleteRoomAction,
+    addChildToList, addRoomItemAction, clearChildListAction, clearRoomListAction, clearSearchResultAction,
+    deleteChildAction, deleteRoomAction, GET_SEARCH_EMPTY_RESULT, GET_SEARCH_ERROR_RESULT, GET_SEARCH_RESULT,
     searchPlaceRequest
 } from "../redux/reducer/SearchReducer";
 import {useNavigate} from "react-router-dom";
 import {BsTrash} from "react-icons/bs";
+import axios from "axios";
+
 
 
 const Booking = () => {
+    const link = process.env.REACT_APP_MAIN_API;
+
+
     const isMenuShown = useSelector(state => state.store.isMenuShown);
     const isPeopleDivOpen = useSelector(state => state.store.isPeopleDivOpen);
     const roomList = useSelector(state => state.store.roomList);
@@ -36,7 +41,6 @@ const Booking = () => {
     const roomNumbers = useSelector(state => state.searchReducer.roomNumbers);
     const isLoading = useSelector(state => state.store.isLoading);
 
-    const destination = translate('Город или отель');
     const dispatch = useDispatch();
 
     const openPeopleDiv = () => {
@@ -49,7 +53,6 @@ const Booking = () => {
             children: childList
         };
         if (people.adultNum === 0 && people.children.length === 0) {
-            console.log('wawa')
         }
         else  dispatch(addRoomItemAction(people));
 
@@ -73,13 +76,11 @@ const Booking = () => {
 
 
     let yourDate = new Date();
-    console.log(yourDate)
     let check_in_day = yourDate.toISOString().split('T')[0];
 
 
     let tomorrow = new Date()
     tomorrow.setDate(yourDate.getDate() + 1);
-    console.log(tomorrow);
     let check_out_day = tomorrow.toISOString().split('T')[0];
 
 //returns the tomorrow date
@@ -98,11 +99,7 @@ const Booking = () => {
             }
         })
     };
-    useEffect(() => {
-        console.log(search.destination)
-        console.log(search.check_in)
-        console.log(search.check_out)
-    }, [search]);
+
 
     const navigate = useNavigate();
 
@@ -137,8 +134,7 @@ const Booking = () => {
     };
 
     const addChildMore = (el) => {
-        // document.getElementById('sec-select').style.display = 'none';
-        // document.getElementById('child-div-sec').style.display = 'flex';
+
         dispatch(addChildToList(el))
 
     };
@@ -172,10 +168,9 @@ const Booking = () => {
     const searchHotel = () => {
 
         let myList =[];
-        console.log(roomListAdded)
+        let childYears =[];
         roomListAdded.map((el, idx)=>{
             let kids = []
-
             el.children.map((el)=>{
                 let age = el.replace('years','');
                 age = age.replace('лет','');
@@ -190,6 +185,23 @@ const Booking = () => {
                 ch: kids
             }
         });
+
+        console.log(myList);
+        let num_of_adults =0;
+        let num_of_childs =0;
+        let child_years =[];
+        myList.map((el)=>{
+            num_of_adults += el.ad;
+            num_of_childs += el.ch.length;
+            el.ch.map((year)=>{
+                child_years.push(year);
+            })
+        });
+
+        localStorage.setItem('num_of_adults',num_of_adults);
+        localStorage.setItem('num_of_childs',num_of_childs);
+        localStorage.setItem('child_years',child_years);
+
 
         let str = '';
         myList.map((el)=>{
@@ -210,23 +222,46 @@ const Booking = () => {
             currency: localStorage.getItem('currency')
         };
 
-        // console.log("haloooo" + JSON.stringify(myList))
 
-        // console.log("GONNA SEND" + payload);
         localStorage.setItem('check_in', search.check_in);
         localStorage.setItem('check_out', search.check_out);
         localStorage.setItem('search', search.destination);
         localStorage.setItem('num_of_guests_str', str)
-        console.log(payload);
-
 
         dispatch(setLoadingTrue());
         dispatch(searchPlaceRequest(payload));
-        setTimeout(() => {
-            navigate('/hotels');
 
-        }, 700)
+
     };
+
+     const searchPlaceRequest = (payload) => (dispatch) => {
+        dispatch(setLoadingTrue());
+
+        axios.get(`${link}search/?search=${payload.destination}&guests=${payload.guests}&currency_to_convert=${payload.currency}&room_category_ids=[]`)
+            .then(({data}) => {
+                dispatch({type: GET_SEARCH_RESULT, payload: data.results})
+                if (data.results.length) {
+                    dispatch(setLoadingFalse());
+                    navigate('/hotels');
+                } else {
+                    dispatch(setLoadingFalse());
+                    dispatch({type: GET_SEARCH_EMPTY_RESULT});
+                }
+            })
+            .catch((e)=>{
+                // console.log(e)
+                dispatch(setLoadingFalse());
+                dispatch({type:GET_SEARCH_ERROR_RESULT});
+
+            })
+
+    };
+
+     useEffect(()=>{
+         dispatch(clearSearchResultAction());
+         dispatch(clearRoomListAction());
+     },[])
+
 
 
     return (
@@ -323,11 +358,11 @@ const Booking = () => {
                                 <label
                                     style={{display: childList.length >= 4 ? 'none' : 'block'}}
                                     className="booking__label booking__people-label">{translate('Дети')}</label>
-                                <select type="number" id="main-child-select" placeholder="добавить ребенка"
+                                <select type="number"  id="main-child-select" placeholder="добавить ребенка"
                                         className="booking__people-input booking__child-input"
                                         name="children" value={people.children}
                                         onChange={(e) => addChild(e.target.value)}>
-                                    <option selected disabled={true}></option>
+                                    <option selected={true}>добавить ребенка</option>
                                     {localStorage.getItem('lan') === 'ru' ?
                                         childrenAgesListRu.map((el) => {
                                             return <option value={el}
@@ -345,8 +380,6 @@ const Booking = () => {
                         <p className="booking__child-label"
                            style={{display: childList.length >= 4 ? 'block' : 'none'}}>{translate('Дети')} :</p>
                         <div className="booking__added-clildren">
-
-
                             {childList?.map((el, idx) => {
                                 return <div className="booking__main-child-div" id="child-div-sec"
                                 >
@@ -371,7 +404,7 @@ const Booking = () => {
                         {roomListAdded.length > 0 ? roomListAdded?.map((el, idx) => {
                             return <div className="booking__room">
                                 <p className="booking__room-num">{translate('Комната')} {roomNumbers[idx] + 1} </p>
-                                <p>{translate('Взрослые')} : {el.adultNum}</p>
+                                <p >{translate('Взрослые')} : {el.adultNum}</p>
                                 <p style={{display: el?.children?.length ? 'block' : 'none'}}>{translate('Дети')} : {el.children?.map((child) => {
                                     return child + ' '
                                 })}</p>

@@ -14,3 +14,8 @@
     margin-left: 20px;
   }
 }
+
+input[type="checkbox"]:disabled {
+  color: #0fab60;
+  background-color: #11ab5b;
+}

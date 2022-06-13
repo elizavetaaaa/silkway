@@ -11,6 +11,7 @@
     transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
+    z-index: 99;
   }
 
   &__title{
@@ -117,17 +118,17 @@
     //overflow-x: scroll;
     overflow-y: scroll;
     height: 300px;
-    width: 310px;
+    width: 350px;
 
 
   }
 
   &__people-add{
     //height: 180px;
-    width: 285px;
+    width: 320px;
     background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
+    //border-radius: 5px;
     //margin-left: 660px;
     //margin-top: 2px;
     margin-right: 5px;
@@ -173,7 +174,8 @@
   }
 
   &__child-input{
-    width: 100px;
+    width: 160px;
+    margin-bottom: 10px;
     border: 1px solid #00000030;
   }
 
@@ -201,7 +203,7 @@
   }
 
   &__room-ready-btn{
-    width: 100%;
+    width: 90%;
     height: 30px;
     color: #fff;
     border-radius: 2px;
@@ -228,6 +230,7 @@
   &__people-label{
     text-align: left;
     margin-bottom: 10px;
+    font-weight: bold;
   }
 
   &__empty-result{
@@ -253,23 +256,25 @@
 
   &__main-child-div{
     display: flex;
-    border: 1px solid #00000020;
-    padding: 2px;
+    border: 1px solid #3789ab;
+    border-radius: 5px;
     width: 100px;
     justify-content: space-between;
     margin-right: 15px;
     margin-bottom: 5px;
+    padding:  5px 10px;
+    background-color: #357cfa10;
 
 
   }
 
   &__main-child-btn{
     border: none;
-    color: #00000060;
     background-color: transparent;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    color: #3789ab;
   }
 
   &__added-clildren{
@@ -278,11 +283,18 @@
     padding: 5px 0;
     flex-wrap: wrap;
 
+
+  }
+
+  &__adult-label{
+    font-weight: bold;
+
   }
 
   &__child-label{
     text-align: left;
-    margin: 10px 0;
+    margin: 20px 0 5px 0;
+    font-weight: bold;
   }
   &__sec-select{
     margin-bottom: 5px;
@@ -291,20 +303,22 @@
   &__rooms{
     background: #FFF;
     padding: 20px 0;
+    width: 320px;
   }
 
   &__room{
-    padding: 10px 20px;
+    padding: 20px;
     border: 1px solid #00000020;
-    margin: 10px 0;
     text-align: left;
     background-color: #357cfa10;
     position: relative;
+    width: 90%;
+    margin:10px  auto;
+    border-radius: 5px;
   }
 
   &__rooms-title{
     text-align: left;
-    color: #1f98f4;
     margin-left: 20px;
     font-weight: bold;
   }

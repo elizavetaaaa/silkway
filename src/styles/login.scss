@@ -10,6 +10,7 @@
   background-color: #fff;
   border-radius: 10px;
   z-index: 99;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
   &__title{
     margin-bottom: 20px;
@@ -74,6 +75,12 @@
     border: none;
     background-color: transparent;
     font-size: 20px;
+  }
+
+  &__no-user-msg{
+    color: red;
+    margin-top: -30px;
+    font-size: 16px;
   }
   }
 

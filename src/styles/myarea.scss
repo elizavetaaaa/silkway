@@ -52,11 +52,16 @@
   }
 
   &__bookings {
-    width: 100%;
+    width: 80%;
+    margin: auto;
     height: 100vh;
-    margin-left: 300px;
+    //margin-left: 300px;
     padding: 15px 30px;
 
+  }
+  &__title{
+    text-align: left;
+    margin-bottom: 30px;
   }
 
   &__booking{

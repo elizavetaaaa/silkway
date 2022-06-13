@@ -9,6 +9,7 @@ import Property from "../components/registration/Property";
 import translate from "../i18n/translate";
 import {setLocale} from "../redux/reducer/lanReducer";
 import {LOCALES} from "../i18n";
+import {setLoginToFalse} from "../redux/reducer/visReducer";
 
 
 const SignUp = () => {
@@ -18,6 +19,7 @@ const SignUp = () => {
     useEffect(()=>{
         dispatch(showIndividual());
         dispatch(deleteVerMessage());
+        dispatch(setLoginToFalse());
     },[]);
 
     const dispatch =  useDispatch();
