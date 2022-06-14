@@ -24,9 +24,7 @@ const FilterHotelFac = ({props, category}) => {
     useEffect(() => {
         let arr = document.getElementsByClassName("check-box-hotel");
         let checkBoxArray = Array.from(arr);
-        console.log(checkBoxArray)
         checkBoxArray.map((el) => {
-            console.log(el.value);
             let newArr =[];
             addedHotelCatsFilterList.map((item)=>{
                 newArr.push(JSON.stringify(item));
@@ -39,15 +37,6 @@ const FilterHotelFac = ({props, category}) => {
         })
     }, [addedHotelCatsFilterList]);
 
-    // useEffect(() => {
-    //     let arr = document.getElementsByClassName("check-box");
-    //     let checkBoxArray = Array.from(arr);
-    //     checkBoxArray.map((el) => {
-    //         if (!addedHotelCatsFilterList.includes(JSON.stringify(el.value))) {
-    //             el.checked = false;
-    //         }
-    //     })
-    // }, [addedFilterList])
     return (
         <div className="filter">
             <input type="checkbox" className="check-box-hotel" value={JSON.stringify(props)}

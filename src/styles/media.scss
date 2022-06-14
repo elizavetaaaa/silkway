@@ -206,6 +206,12 @@
   }
 
 @media (max-width: 600px) {
+  .hotelCard__room-info{
+    height: auto;
+  }
+  .footer{
+    display: none;
+  }
   .container {
     max-width: 400px !important;
   }
@@ -408,7 +414,7 @@
   }
 
   .booking__form {
-    margin-top: 20px;
+    margin-top: 20px !important;
   }
 
   .header{
@@ -536,6 +542,20 @@
 
   .hotels__filter-btn:hover {
     color: #0fab60;
+  }
+
+  .booking__people-forms{
+    width: 323px;
+    border-radius: 10px;
+  }
+
+  .booking__title{
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .booking__subtitle{
+    font-size: 12px;
+
   }
 
 

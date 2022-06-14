@@ -29,9 +29,7 @@ const FilterStar = ({props, category}) => {
     useEffect(() => {
         let arr = document.getElementsByClassName("check-box-star");
         let checkBoxArray = Array.from(arr);
-        console.log(checkBoxArray)
         checkBoxArray.map((el) => {
-            console.log(el.value);
             let newArr =[];
             addedStarList.map((item)=>{
                 newArr.push(JSON.stringify(item));

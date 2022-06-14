@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import asia from "../images/icons/asia.png";
 import mountain from "../images/icons/mountain.png";
 import car from "../images/icons/car-key.png";
@@ -8,10 +8,12 @@ import translate from "../i18n/translate";
 import {changeContactDiv, showContactDiv} from "../redux/reducer/visReducer";
 import {setLocale} from "../redux/reducer/lanReducer";
 import {LOCALES} from "../i18n";
+import {closeMsgSuccessAction, sendMsgAction} from "../redux/reducer/SearchReducer";
 
 const Facilities = () => {
     const isMenuShown = useSelector(state => state.store.isMenuShown);
     const isContactOpen = useSelector(state => state.store.isContactOpen);
+    const msgPopup = useSelector(state => state.searchReducer.msgPopup);
     const dispatch = useDispatch();
 
 
@@ -23,9 +25,7 @@ const Facilities = () => {
         dispatch(changeContactDiv());
     };
 
-    const sendMessage =()=>{
-        dispatch(changeContactDiv());
-    };
+
 
     useEffect(() => {
         if (localStorage.getItem('lan') === 'ru') {
@@ -40,24 +40,66 @@ const Facilities = () => {
 
     }, []);
 
+    const sendMessage =()=>{
+        if(letter.email !== '' && letter.message !==''){
+            dispatch(sendMsgAction(letter))
+
+        }
+        // dispatch(changeContactDiv());
+    };
+
+    const [letter, setLetter] =useState({
+        email:'',
+        message:''
+    });
+
+    const changeHandler = (e) => {
+        setLetter((pref) => {
+            return {
+                ...pref, [e.target.name]: e.target.value
+            }
+        })
+    };
+
+    const closeMsgInfo =()=>{
+       dispatch( closeMsgSuccessAction());
+    }
+
+
     return (
         <div className="facilities" style={{display: isMenuShown ? 'none' : 'block'}}>
             <div className="facilities__contact-form"
                  style={{display : isContactOpen ? 'block' : 'none'}}>
                 <button className="facilities__close-btn"  type="button" onClick={()=>closeContact()}>Х</button>
                 <div className="facilities__input-block">
-                    <label className="facilities__label">{translate('Введите Ваш email')}</label>
-                    <input required type="text" className="facilities__input"/>
+                    <label className="facilities__label">{translate('Еmail')}</label>
+                    <input required type="text" className="facilities__input" value={letter.email}
+                           name={'email'}
+
+                           placeholder="Введите Ваш email"
+                           onChange ={changeHandler}/>
                 </div>
 
                 <div className="facilities__input-block">
-                    <label className="facilities__label">{translate('Введите Вашe сообщение')}</label>
-                    <textarea required className="facilities__text-area"/>
+                    <label className="facilities__label">{translate('Cообщение')} </label>
+                    <textarea required className="facilities__text-area" value={letter.message}
+                              name={'message'}
+                              placeholder="Введите Вашe сообщение"
+                              onChange ={changeHandler}/>
                 </div>
 
-                <button className="facilities__submit-btn" onClick={()=>sendMessage()}>{translate('Отправить')}</button>
+                <button className="facilities__submit-btn" type="button" onClick={()=>sendMessage()}>{translate('Отправить')}</button>
             </div>
-            <div className="container facilities__subcontainer" style={{opacity : isContactOpen ? '30%' : '100%'}}>
+
+            <div className="facilities__msg-info facilities__contact-form"
+            style={{display : msgPopup ? 'block' : 'none'}}>
+
+                <h3>Сообщение успешно отправлено!</h3><br/>
+                <p>В близжайшее время наш менеджер свяжется с Вами!</p>
+                <button className="facilities__submit-btn facilities__msg-btn" onClick={()=>closeMsgInfo()}>OK</button>
+
+            </div>
+            <div className="container facilities__subcontainer" style={{opacity : isContactOpen || msgPopup ? '30%' : '100%'}}>
 
 
 

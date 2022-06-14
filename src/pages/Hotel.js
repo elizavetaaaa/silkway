@@ -129,11 +129,11 @@ const Hotel = () => {
                 <div className="hotel__container hotel__container-fac">
 
                     {currentHotel?.images.length ?
-                        <Carousel className="hotel__carousel" itemsToShow={3} pagination={true}
-                                  style={{position: 'relative', width: '60%', padding: '0 !important'}}>
+                        <Carousel className="hotel__carousel" itemsToShow={5} pagination={true}
+                                  style={{position: 'relative', width: '100%', padding: '0 !important'}}>
                             {currentHotel?.images?.map((el) => {
                                 return <img className="hotel__img"
-                                            src={`https://silk-travel.herokuapp.com/${el.image_url}`} alt="image"/>
+                                            src={`https://silk-travel.herokuapp.com${el.image_url}`} alt="image"/>
 
                             })}
 

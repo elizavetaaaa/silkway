@@ -239,8 +239,9 @@ const Booking = () => {
 
         axios.get(`${link}search/?search=${payload.destination}&guests=${payload.guests}&currency_to_convert=${payload.currency}&room_category_ids=[]`)
             .then(({data}) => {
+                console.log(data);
                 dispatch({type: GET_SEARCH_RESULT, payload: data.results})
-                if (data.results.length) {
+                if (data.results[0].result.rooms.length ) {
                     dispatch(setLoadingFalse());
                     navigate('/hotels');
                 } else {
@@ -251,7 +252,9 @@ const Booking = () => {
             .catch((e)=>{
                 // console.log(e)
                 dispatch(setLoadingFalse());
-                dispatch({type:GET_SEARCH_ERROR_RESULT});
+                // dispatch({type:GET_SEARCH_ERROR_RESULT});
+                dispatch({type: GET_SEARCH_EMPTY_RESULT});
+
 
             })
 

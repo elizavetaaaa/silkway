@@ -1,5 +1,5 @@
 import axios from "axios";
-import {setLoadingFalse, setLoadingTrue} from "./visReducer";
+import {changeContactDiv, setLoadingFalse, setLoadingTrue} from "./visReducer";
 
 const SEARCH_PLACE_REQUEST = 'SEARCH_PLACE_REQUEST';
 
@@ -44,6 +44,9 @@ const OPEN_PHONE_POPUP =  'OPEN_PHONE_POPUP'
 const CLOSE_PHONE_POPUP =  'CLOSE_PHONE_POPUP'
 const BOOKING_SUCCESS = 'BOOKING_SUCCESS'
 const CLOSE_BOOKING_SUCCESS = 'CLOSE_BOOKING_SUCCESS'
+const SEND_MSG_REQUEST = 'SEND_MSG_REQUEST'
+const CLOSE_MSG_POPUP = 'CLOSE_MSG_POPUP'
+const SEND_MSG_SUCCESS = 'SEND_MSG_SUCCESS'
 
 
 const link = process.env.REACT_APP_MAIN_API;
@@ -72,7 +75,8 @@ const initialState = {
     addedStarList: [],
     addedRoomCatsFilterList: [],
     phonePopupStatus: false,
-    bookSuccessPopupStatus: false
+    bookSuccessPopupStatus: false,
+    msgPopup: false
 };
 
 
@@ -300,6 +304,18 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 bookSuccessPopupStatus: false
+            }
+        }
+        case SEND_MSG_SUCCESS: {
+            return {
+                ...state,
+                msgPopup: true
+            }
+        }
+        case CLOSE_MSG_POPUP: {
+            return {
+                ...state,
+                msgPopup: false
             }
         }
 
@@ -562,6 +578,7 @@ export const searchFilteredRequest = (url) => async (dispatch) => {
             dispatch({type: GET_SEARCH_RESULT, payload: data.results})
             if (data.results.length) {
                 dispatch(setLoadingFalse());
+                dispatch(clearEmptyMsgAction())
             } else {
                 dispatch(setLoadingFalse());
                 dispatch({type: GET_SEARCH_EMPTY_RESULT});
@@ -590,6 +607,29 @@ export const closePhonePopupAction = () => ({
 
 export const closeBookSuccessAction = () => ({
     type: CLOSE_BOOKING_SUCCESS
+});
+
+
+export const sendMsgAction = (msg) => {
+        return (dispatch) => {
+        axios.post(`${link}authe/contact_us/`, msg,
+        )
+            .then(({data}) => {
+                console.log(data);
+                dispatch(changeContactDiv())
+                 dispatch({type: SEND_MSG_SUCCESS})
+                // console.log("booking send response" + JSON.stringify(data));
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+
+    }
+};
+
+
+export const closeMsgSuccessAction = () => ({
+    type: CLOSE_MSG_POPUP
 });
 
 

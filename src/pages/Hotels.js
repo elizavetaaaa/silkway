@@ -90,10 +90,10 @@ const Hotels = () => {
         let searchStr = '';
         let searchArr = [];
         addedHotelCatsFilterList.map((el) => {
-            searchStr += `categories=${el.id}&`;
+            searchStr += `facilities_hotel_id__term=${el.id}&`;
         });
         addedFoodCatsFilterList.map((el) => {
-            searchStr += `food_category=${el.id}&`;
+            searchStr += `food_category__term=${el.id}&`;
         });
         addedRoomCatsFilterList.map((el) => {
             searchArr.push(el.id)
@@ -185,7 +185,7 @@ const Hotels = () => {
         roomListAdded.map((el) => {
             peopleSum += el.adultNum;
             peopleSum += el.children.length
-        })
+        });
         setGuests(0);
         setGuests(peopleSum);
         localStorage.setItem("num_of_guests", peopleSum);

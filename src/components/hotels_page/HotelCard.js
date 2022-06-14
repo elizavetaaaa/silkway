@@ -38,7 +38,8 @@ const HotelCard = ({props}) => {
 
 
     return (
-        <div className="hotelCard">
+        <div className="hotelCard"
+        style={{display : props?.result?.rooms?.length ? 'block' : 'none'}}>
             <div className="hotelCard__top-div">
             <Carousel className="hotel__carousel" itemsToShow={1} pagination ={false} style={{position : 'relative', width: '50%', padding: '0 !important' }}>
                 {items.map(item =>

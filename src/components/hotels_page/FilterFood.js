@@ -13,8 +13,6 @@ const FilterFood = ({props, category}) => {
     const addedFoodCatsFilterList = useSelector(state => state.searchReducer.addedFoodCatsFilterList);
 
     const addToFilterList = (value) => {
-        console.log(value)
-        console.log(addedFoodCatsFilterList.includes(value))
         if (!addedFoodCatsFilterList.includes(value)) {
             // dispatch(addToFilterListAction(value))
             dispatch(addToFoodCAtsFilterListAction(value))
@@ -33,9 +31,7 @@ const FilterFood = ({props, category}) => {
     useEffect(() => {
         let arr = document.getElementsByClassName("check-box-food");
         let checkBoxArray = Array.from(arr);
-        console.log(checkBoxArray)
         checkBoxArray.map((el) => {
-            console.log(el.value);
             let newArr =[];
             addedFoodCatsFilterList.map((item)=>{
                 newArr.push(JSON.stringify(item));

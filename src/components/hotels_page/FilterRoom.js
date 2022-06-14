@@ -13,11 +13,9 @@ const FilterRoom = ({props, category}) => {
     const addedRoomCatsFilterList = useSelector(state => state.searchReducer.addedRoomCatsFilterList);
     const addToFilterList = (value) => {
         if (!addedRoomCatsFilterList.includes(value)) {
-            // dispatch(addToFilterListAction(value))
             dispatch(addToRoomCatsFilterListAction(value))
         }
         else {
-            // dispatch(deleteFilterAction(value))
             dispatch(deleteFromRoomCatsFilterListAction(value))
 
         }
@@ -28,9 +26,7 @@ const FilterRoom = ({props, category}) => {
     useEffect(() => {
         let arr = document.getElementsByClassName("check-box-room");
         let checkBoxArray = Array.from(arr);
-        console.log(checkBoxArray)
         checkBoxArray.map((el) => {
-            console.log(el.value);
             let newArr =[];
             addedRoomCatsFilterList.map((item)=>{
                 newArr.push(JSON.stringify(item));
